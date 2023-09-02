@@ -4,16 +4,17 @@ plugins {
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
     id 'androidx.navigation.safeargs'
+    id 'kotlin-parcelize'
 }
 
 android {
     namespace 'com.decode.udemyfoodapp'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.decode.udemyfoodapp"
         minSdk 24
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -65,22 +66,22 @@ dependencies {
     kapt "androidx.room:room-compiler:2.5.2"
 
     //dagger-hilt
-    implementation "com.google.dagger:hilt-android:2.46.1"
-    kapt "com.google.dagger:hilt-compiler:2.46.1"
+    implementation 'com.google.dagger:hilt-android:2.48'
+    kapt 'com.google.dagger:hilt-compiler:2.48'
 
     //ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel:2.6.1"
     implementation "androidx.activity:activity-ktx:1.7.2"
 
     // Kotlin Coroutines
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
 
     //Data Store
     implementation "androidx.datastore:datastore-preferences:1.0.0"
 
     //Coil
-    implementation 'io.coil-kt:coil:2.2.2'
+    implementation 'io.coil-kt:coil:2.4.0'
 
     //Shimmer
     implementation 'com.github.sharish:ShimmerRecyclerView:v1.3'
