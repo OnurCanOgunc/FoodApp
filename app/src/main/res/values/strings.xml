@@ -3,4 +3,10 @@
     <string name="recipes_fragment">Recipes</string>
     <string name="favorite_recipes">Favorite</string>
     <string name="food_joke">Joke</string>
+    <string name="error_image">Error Image</string>
+    <string name="recipes">Recipes</string>
+    <string name="vegan">Vegan</string>
+    <string name="clock">Clock</string>
+    <string name="food">Food</string>
+    <string name="like">Like</string>
 </resources>
