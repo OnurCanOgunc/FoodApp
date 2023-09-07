@@ -1,10 +1,11 @@
-package com.decode.udemyfoodapp
+package com.decode.udemyfoodapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
+import com.decode.udemyfoodapp.R
 import com.decode.udemyfoodapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
