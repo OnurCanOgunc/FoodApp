@@ -1,4 +1,4 @@
-package com.decode.udemyfoodapp
+package com.decode.udemyfoodapp.viewmodels
 
 import android.app.Application
 import android.content.Context
@@ -44,7 +44,7 @@ class MainViewModel @Inject constructor(
         return when {
             response.message().toString().contains("timeout") -> NetworkResult.Error("Timeout")
             response.code() == 402 -> NetworkResult.Error("API Key Limited")
-            response.body()!!.results.isNullOrEmpty() -> NetworkResult.Error("Recipes Not Found")
+            response.body()!!.results.isEmpty() -> NetworkResult.Error("Recipes Not Found")
             response.isSuccessful -> NetworkResult.Success(response.body()!!)
             else -> NetworkResult.Error(response.message())
         }
