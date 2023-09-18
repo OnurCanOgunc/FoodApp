@@ -16,8 +16,8 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    @Provides
     @Singleton
+    @Provides
     fun provideHttpClient(): OkHttpClient {
         return OkHttpClient.Builder()
             .readTimeout(20,TimeUnit.SECONDS)
@@ -25,12 +25,12 @@ object NetworkModule {
 
     }
 
-    @Provides
     @Singleton
+    @Provides
     fun provideConverterFactory(): GsonConverterFactory = GsonConverterFactory.create()
 
-    @Provides
     @Singleton
+    @Provides
     fun provideRetrofitInstance(
         okHttpClient: OkHttpClient,
         gsonConverterFactory: GsonConverterFactory

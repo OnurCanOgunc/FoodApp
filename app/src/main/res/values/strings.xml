@@ -9,4 +9,5 @@
     <string name="clock">Clock</string>
     <string name="food">Food</string>
     <string name="like">Like</string>
+    <string name="no_internet_connection">No Internet connection</string>
 </resources>

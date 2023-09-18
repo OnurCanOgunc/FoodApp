@@ -35,9 +35,10 @@ fun applyVeganColor(view: View, vegan: Boolean) {
 }
 
 @BindingAdapter("app:loadImage")
-fun loadImage(imageView: ImageView, imageUrl: String) {
+fun loadImage(imageView: ImageView, imageUrl: String?) {
     imageView.load(imageUrl) {
         crossfade(600)
+        error(R.drawable.placeholder)
 
     }
 }
