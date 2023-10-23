@@ -11,7 +11,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.decode.udemyfoodapp.R
 import com.decode.udemyfoodapp.viewmodels.MainViewModel
 import com.decode.udemyfoodapp.adapters.RecipesAdapter
 import com.decode.udemyfoodapp.data.database.entity.Recipes
@@ -25,6 +28,8 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class RecipesFragment : Fragment() {
+
+    private val args by navArgs<RecipesFragmentArgs>()
 
     private var _binding: FragmentRecipesBinding? = null
     private val binding get() = _binding!!
@@ -42,6 +47,11 @@ class RecipesFragment : Fragment() {
 
         setupRecyclerView()
         readDatabase()
+
+        binding.recipesFab.setOnClickListener {
+            findNavController().navigate(R.id.action_recipesFragment_to_recipesBottomSheet)
+        }
+
         return binding.root
     }
 
@@ -49,8 +59,9 @@ class RecipesFragment : Fragment() {
         mainViewModel.getAllRecipes()
         lifecycleScope.launch {
             mainViewModel.databaseRecipes.observeOnce(viewLifecycleOwner) {
-                if (it.isNotEmpty()) {
-                    Log.d("RecipesFragment", "read database1")
+
+                if (it.isNotEmpty() && !args.backFromBottomSheet) {
+                    Log.d("RecipesFragment", "read database")
                     recipeAdapter.differ.submitList(it[0].foodRecipe.results)
                     hideShimmer()
                 } else {
@@ -61,7 +72,7 @@ class RecipesFragment : Fragment() {
     }
 
     private fun requestApiData() {
-        Log.d("RecipesFragment", "requestApiData called1!")
+        Log.d("RecipesFragment", "requestApiData called!")
         mainViewModel.getRecipes(recipesViewModel.applyQueries())
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {

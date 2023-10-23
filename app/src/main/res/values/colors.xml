@@ -23,4 +23,9 @@
     <color name="darker">#151B20</color>
     <color name="yellow">#DFCA10</color>
     <color name="lightMediumGray">#80D1D1D1</color>
+    // Chip Color
+    <color name="checkedChipBackgroundColor">#303A7CAF</color>
+    <color name="ChipBackgroundColor">@color/lightGray</color>
+    <color name="checkedChipTextColor">@color/colorPrimary</color>
+    <color name="ChipTextColor">@color/darkGray</color>
 </resources>
